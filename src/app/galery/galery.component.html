@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="row text-center">
+    <div class="text-decoration-underline text-primary my-3 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <h1 class="gallery-title">Gallery</h1>
+    </div>
+    <div *ngFor="let image of galery" class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 mb-3" >
+        <a data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="setModal(image)" role="button">
+        <img src="{{image.url}}" class="object-fit-cover" width="100%" height="365px">
+    </a>
+    </div>
+
+    </div>
+</div>
+
+<div class="modal fade mt-5" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">{{imageTitle}}</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <img src="{{imageUrl}}" class="img-fluid mx-auto d-block">
+        </div>
+      </div>
+    </div>
+  </div>

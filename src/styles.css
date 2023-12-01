@@ -1,0 +1,55 @@
+/* You can add global styles to this file, and also import other style files */
+
+
+  .form-capsule {
+    max-width: 330px;
+    padding: 1rem;
+  }
+  
+  .form-capsule.form-floating:focus-within {
+    z-index: 2;
+  }
+  
+  .form-capsule #floatingInput {
+    margin-bottom: -1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+  
+
+  .form-capsule input[type="text"] {
+    margin-bottom: 10px;
+  }
+  .form-capsule button{
+    margin-top: 10px;
+  }
+
+  .form-capsule #singleEmail{
+    margin-bottom: -1px;
+  }
+
+  .form-capsule #floatingFirstPassword{
+    margin-bottom: -1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+
+  .form-capsule #floatingPassword{
+    margin-bottom: -1px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+
+  .form-capsule #floatingRePassword{
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+
+  .form-capsule #floatingLastPassword{
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }

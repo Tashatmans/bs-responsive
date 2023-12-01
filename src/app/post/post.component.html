@@ -1,0 +1,19 @@
+<div class="row g-3 pt-3">
+    <div class="col-md-8">
+        <div *ngIf="featureImage">
+            <img src="{{featureImage.url}}"  alt="{{featureImage.description}}" class="object-fit-cover center" width="100%" height="365px">
+        </div>
+        <div class="row p-2">
+            <article class="blog-post">
+                <h2 class="display-5 link-body-emphasis mb-1">{{post.title}}</h2>
+                <p class="blog-post-meta">{{post.date | date: "MMMM dd,y"}}</p>
+                <div [innerHTML]="post.content" class="mb-auto"></div>
+            </article>
+        </div>
+    </div>
+    <div class="col-md-4 px-3">
+        <div class="position-sticky" style="z-index: 10; top: 70px;">
+            <app-sidebar></app-sidebar>
+        </div>
+    </div>
+</div>

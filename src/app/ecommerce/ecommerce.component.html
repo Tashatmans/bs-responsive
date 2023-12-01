@@ -1,0 +1,75 @@
+<div class="container px-2 py-3" id="custom-cards">
+  <div class="row">
+    <div class="col"><h2 class="pb-2">Products</h2></div>   
+    <div class="col-auto ms-auto p-2">    <span class="ms-auto d-none">{{cart.length}}</span></div> 
+
+    <hr></div>
+
+    <div class="row">
+        <div class="col-lg-2 mb-2">
+            <div class="list-group">
+                <a routerLink="/shop/products" class="list-group-item list-group-item-action" (click)="changeGenre()"
+                    [class.active]="!selectedCategory">
+                    All Genres
+                </a>
+                <a *ngFor="let genre of genres" class="list-group-item list-group-item-action"
+                    (click)="changeGenre(genre)" [class.active]="genre==selectedCategory">{{genre.name}}</a>
+            </div>
+        </div>
+        <div class="col-lg-10">
+            <div class="row row-cols-auto">
+                <ng-container *ngFor="let product of products">
+
+                    <div class="col-lg-3 col-md-4 col-6 mb-3">
+                        <div class="card">
+
+                            <img class="card-img-top" src="{{product.url}}" alt="Card image cap">
+                            <!-- <div
+                            class=" col align-items-end justify-content-end text-light text-end pb-2 me-2 float-left card-img-overlay">
+                            <span class="">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                    fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                                    <path
+                                        d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15" />
+                                </svg>
+                            </span>
+
+                            <span class=""> <svg xmlns="http://www.w3.org/2000/svg" width="24"
+                                    height="24" fill="currentColor" class="bi bi-bookmark"
+                                    viewBox="0 0 16 16">
+                                    <path
+                                        d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1z" />
+                                </svg></span>
+
+                        </div> -->
+                            <div class="card-body" style="min-height: 5rem;">
+                                <h6 class="card-title">{{product.name}}</h6>
+                                <!-- <p class="card-text">{{product.description}}</p> -->
+                            </div>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item text-center">{{product.price}} $</li>
+                            </ul>
+                            <div class="card-body">
+                                <div class="row row-col-auto">
+                                    <div class="col  d-grid gap-2"> <button class="btn btn-dark" 
+                                        routerLink="/cart" (click)="onAddToCart(product)"  > Add to Cart</button>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </ng-container>
+            </div>
+            <div class="btn-group">
+                <button (click)="previousPage()" [disabled]="selectedPage==1"
+                    class="btn btn-outline-dark">Previous</button>
+                <button *ngFor="let page of pageNumbers" (click)="changePage(page)" [class.active]="page==selectedPage"
+                    class="btn btn-outline-dark">{{page}}</button>
+                <button (click)="nextPage()" [disabled]="selectedPage==pageNumbers.length"
+                    class="btn btn-outline-dark">Next</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="wraper mt-auto"></div>

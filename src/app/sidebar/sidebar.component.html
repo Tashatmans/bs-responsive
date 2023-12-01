@@ -1,0 +1,35 @@
+<div class="list-group mb-3">
+    <a  routerLink="/blog/all" class="list-group-item list-group-item-action"[class.active]="'all'==slug">All Categories</a>
+    <a  *ngFor="let cat of categories" routerLink="/blog/{{cat.id}}" class="list-group-item list-group-item-action"[class.active]="cat.id==slug">{{cat.name}}</a>
+</div>
+
+<div>
+    <h4 class="fst-italic">Recent posts</h4>
+    <ul class="list-unstyled">
+        <li *ngFor="let post of posts.slice(0,3)">
+            <a class="d-flex flex-column flex-lg-row gap-3 py-3 link-body-emphasis text-decoration-none border-top"
+                routerLink="/pt/{{post.id}}">
+                <div class="row">
+                    <div class=" col-4 col-sm-4 col-lg-4 col-md-4 ">
+                        <img src="{{post.featureImage.url}}" alt="{{post.featureImage.description}}"
+                            class="object-fit-cover" width="100%" height="96px">
+                    </div>
+                    <div class="col-8 col-sm-8 col-lg-8 col-md-8  align-items-start align-items-lg-center ">
+                        <h6 class="mb-0">{{post.title}}</h6>
+                        <small class="text-body-secondary">{{post.date | date: "MMMM dd,y"}}</small>
+                    </div>
+                </div>
+
+            </a>
+        </li>
+    </ul>
+</div>
+
+<div class="p-4">
+    <h4 class="fst-italic">Elsewhere</h4>
+    <ol class="list-unstyled">
+        <li><a href="https://instagram.com" target="_blank">Instagram</a></li>
+        <li><a href="https://twitter.com"target="_blank">Twitter</a></li>
+        <li><a href="https://facebook.com" target="_blank">Facebook</a></li>
+    </ol>
+</div>

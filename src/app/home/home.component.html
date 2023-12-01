@@ -1,0 +1,16 @@
+<div class="p-5 my-4 bg-light rounded-3">
+  <h1>Steps to develop a website</h1>
+  <p class="lead">In today's world internet is the most popular method of connecting with people. At <a
+      href="https://www.yoursite.com" class="text-success" target="_blank">yourwebsite link</a> Here you will
+    understand the important web development technologies along with real time code samples and examples, using this
+    you can develop your own or custom website to connect with the people across the world.</p>
+  <p><a href="https://www.tutorialrepublic.com" target="_blank" class="btn btn-success btn-lg">Get started today</a>
+  </p>
+</div>
+<div class="row p-2 g-3">
+  <div *ngFor="let post of posts" class="col-md-6 col-lg-4 col-xl-3">
+    <h2>{{post.title}}</h2>
+    <div [innerHTML]="post.content.slice(0,210)"></div>
+    <p><a href="/pt/{{post.id}}" class="btn btn-success">Learn More &raquo;</a></p>
+  </div>
+</div>

@@ -1,0 +1,39 @@
+<div class="row g-3 pt-3">
+    <div class="col-md-8 px-3">
+        <article *ngFor="let post of posts" class="blog-post mb-2">
+            <div class="row g-0 border rounded overflow-hidden flex-md-row shadow-sm h-md-250 position-relative">
+                <div class="col-auto d-none d-lg-block">
+                    <img src="{{post.featureImage.url}}" alt="{{post.featureImage.description}}"
+                        class="object-fit-cover center" width="280px" height="280px">
+                </div>
+                <div class="col p-4 d-flex flex-column position-static">
+                    <p> <strong *ngFor="let cat of post.categories"
+                            class="d-inline-block mb-2 me-2 text-success-emphasis">{{cat.name}}</strong>
+                    </p>
+                    <h3 class="mb-0">{{post.title}}</h3>
+
+                    <div [innerHTML]="post.content.slice(0, 206)" class="mb-auto"></div>
+                    <div class="mb-1 text-body-secondary">{{post.date | date: "MMMM dd,y"}}</div>
+
+                    <a routerLink="/pt/{{post.id}}" class="icon-link gap-1 icon-link-hover stretched-link">
+                        Continue reading
+                    </a>
+                </div>
+            </div>
+        </article>
+
+
+        <div class="btn-group">
+            <button  (click)="changePage(1)" [disabled]="selectedPage==1" class="btn btn-outline-primary">Previous</button>
+            <button *ngFor="let page of pageNumbers" (click)="changePage(page)" [class.active]="page==selectedPage" class="btn btn-outline-primary">{{page}}</button>
+            <button  (click)="changePage(pageNumbers.length)" [disabled]="selectedPage==pageNumbers.length" class="btn btn-outline-primary">Next</button>
+        </div>
+
+
+    </div>
+    <div class="col-md-4 px-3">
+        <div class="position-sticky" style="z-index: 10; top: 70px;">
+            <app-sidebar></app-sidebar>
+        </div>
+    </div>
+</div>

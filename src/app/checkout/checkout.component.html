@@ -1,0 +1,53 @@
+<div class="row mt-4 m-2">
+    <div class="col-lg-8 col-12 g-0 border rounded overflow-hidden flex-md-row shadow-sm h-md-250 position-relative mb-3 mx-1 p-3">
+        <div *ngIf="cart.length">
+            <h5 class="pb-1 border-bottom">Order Summary</h5>
+            <div *ngFor="let item of cart" class="row ">
+                <div class="col-md-6 col-12">{{item.product.name}}</div>
+                <div class="col-md-3 col">Amount: {{item.amount}}</div>
+                <div class="col-md-3 col">Price: {{item.product.price*item.amount}}.00 $</div>
+            </div>
+            <h5 class=" mt-4 pb-1 border-bottom">Shipping Address</h5>
+            <span>
+                <strong>Address Name: Home</strong>
+            </span>
+            <p>
+
+                Keas 69 Str.
+15234, Chalandri
+Athens,
+Greece
+<br>
++30-2106019311 (landline)
+<br>
++30-6977664062 (mobile phone)
+<br>
++30-2106398905 (fax)
+            </p>
+            <h5 class=" mt-4 pb-1 border-bottom">Sales Contract</h5>
+            <span>
+                <strong>Test Company Sales Contract</strong>
+            </span>
+            <p>
+                <strong>1)</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vitae mi orci. Pellentesque tristique fringilla elit, at suscipit tortor porttitor in. Phasellus augue urna, bibendum eu odio id, fringilla viverra augue. Duis accumsan purus at sem tincidunt, sit amet pretium sapien eleifend. Phasellus sed faucibus turpis. Aenean sed mauris quis nisi ultricies sodales eget a arcu. Aenean nec ex a metus semper rutrum id at nunc. Mauris congue vitae nunc non fringilla.
+            </p>
+            <p> <strong>2)</strong>Donec vitae sem dolor. In dictum risus vitae augue ultrices consectetur. Mauris tincidunt aliquet convallis. Phasellus lacinia scelerisque interdum. Nulla vitae justo facilisis nisi mollis laoreet nec quis augue. Nullam porttitor nulla vitae aliquet viverra. Donec tincidunt nulla eget semper sollicitudin.
+            </p>
+            <p> <strong>3)</strong>Ut aliquet, purus nec euismod egestas, urna risus auctor lectus, ac rutrum nisl odio quis leo. Integer tempus vehicula eros, vel porta quam tincidunt nec. Etiam condimentum lectus et est malesuada, eget egestas odio tincidunt. Ut ut egestas libero. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Duis metus leo, posuere vitae diam vel, vehicula vestibulum nulla. Mauris in leo auctor orci aliquam finibus vel ut libero. Mauris aliquam, nulla consequat blandit volutpat, ipsum risus porttitor tortor, consectetur congue nibh eros ut purus. Curabitur ut erat et elit aliquet sodales id sit amet sem. Donec vel metus vitae odio euismod rhoncus. Aenean sagittis enim sit amet eros rutrum lobortis. Pellentesque elit ex, semper et ipsum id, sollicitudin vestibulum orci. Curabitur in condimentum erat.
+            </p>
+            <p>  <strong>4)</strong>Sed ut gravida dui. Maecenas sit amet dapibus arcu, ut rhoncus felis. Aenean nec velit ut massa tempus congue nec at felis. Proin sit amet gravida justo. Cras pharetra finibus nulla, nec feugiat erat consectetur eget. Duis nec mattis elit. Donec in tellus a justo consectetur auctor eget quis massa. Nulla semper eleifend arcu. Aliquam interdum quam tortor, eget posuere elit euismod sit amet. Mauris tristique lacus erat, et elementum libero semper eget.
+            </p>
+            <p>  <strong>5)</strong>Morbi sem turpis, bibendum ut blandit ut, facilisis et magna. Sed auctor massa ut mauris mollis cursus. Integer facilisis pellentesque libero. Nulla semper suscipit ex et convallis. Etiam eget felis id nunc efficitur molestie. Vivamus sodales ac lacus nec blandit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Donec a eros pellentesque urna tristique elementum nec id magna. Quisque vel congue purus, a tincidunt dolor. Quisque malesuada auctor nisi, eget luctus eros tempor sit amet. Sed arcu enim, tincidunt rutrum vestibulum vel, dapibus eget dui. Vestibulum vitae ligula aliquet, elementum neque ac, euismod nunc. Donec lobortis nisl pharetra egestas euismod.
+            </p>
+        </div>
+
+    </div>
+    <div class="col g-0 border rounded overflow-hidden flex-md-row shadow-sm h-md-250 position-relative mb-3 mx-1 p-3">
+        <h3 class="mb-3 pb-1 border-bottom text-end">Check Out</h3>
+        <div class="text-end"><h5>Sub Total: {{sub}} $</h5></div>
+        <div class="text-end"><h5>VAT %20: {{vat}} $</h5></div>
+        <div class="text-end"><h5>Total: {{total}} $</h5></div>
+        <div class=" d-grid gap-2 p-2"><button class="btn btn-primary" (click)="complateOrder()">Complate Order</button></div>
+        <div class=" d-grid gap-2 p-2"><button class="btn btn-danger" (click)="cancelCheckout()">Cancel</button></div>
+    </div>
+</div>

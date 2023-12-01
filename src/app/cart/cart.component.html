@@ -1,0 +1,42 @@
+<div class="row g-3 pt-3">
+
+        <div class="col p-1"><button type="button" class="btn btn-danger btn-sm" (click)="clearAll()">Clear All</button></div>
+        <div class="col mx-auto">
+            <div class="text-center">
+                <h2>Cart</h2>
+
+            </div>
+        </div>
+        <div class="col text-end p-1"><button type="button" class="btn btn-success btn-sm" (click)="checkOut()">Check Out</button></div>
+        <hr>
+
+</div>
+<div *ngIf="cart.length">
+    <div  *ngFor="let item of cart" class="row g-0 border rounded overflow-hidden flex-md-row shadow-sm h-md-250 position-relative mt-3">
+        <div class="col-auto d-none d-md-block">
+            <img src="{{item.product.url}}" alt="" class="object-fit-cover  rounded d-block" width="96px"
+                height="96px">
+        </div>
+        <div class="col-auto d-md-none d-block">
+            <img src="{{item.product.url}}" alt="" class="object-fit-cover rounded d-block" width="96px"
+                height="96px">
+        </div>
+        <div class="col-8 col-md p-3 d-flex flex-column position-static">
+            <h5>{{item.product.name}}</h5>
+        </div>
+        <div class="col-lg-2 col-md-3 col-sm-4 col-xs-4 col-5 p-4 d-flex flex-column position-static text-center">
+            <div class="input-group input-group-sm mb-3">
+                <button class="btn btn-outline-secondary" type="button" (click)="decreaseItemAmount(item)">-</button>
+                <input type="text" class="form-control text-center" placeholder="" aria-label="Example text with button addon"
+                    aria-describedby="button-addon1" [(ngModel)]="item.amount" (blur)="updateItemAmount(item)">
+                <button class="btn btn-outline-secondary" type="button" (click)="increaseItemAmount(item)">+</button>
+            </div>
+        </div>
+        <div class="col-md-3 col py-4 px-1 d-flex flex-column position-static text-center">
+            {{item.product.price * item.amount}}.00 $
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 text-end p-4"><h5 class="border-top p-4">Total: {{total}}.00 $</h5></div>
+    </div>
+</div>
